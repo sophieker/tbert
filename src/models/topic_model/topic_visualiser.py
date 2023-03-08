@@ -5,7 +5,7 @@ import pandas as pd
 import pyLDAvis
 import pyLDAvis.gensim  # don't skip this
 
-from src.topic_model.topic_loader  import get_topic_model_folder
+from topic_model.topic_loader  import get_topic_model_folder
 import matplotlib.pyplot as plt
 
 

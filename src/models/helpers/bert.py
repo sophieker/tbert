@@ -1,5 +1,5 @@
 import tensorflow as tf
-from src.preprocessing import bert_tokenization
+from preprocessing import bert_tokenization
 import numpy as np
 
 def get_bert_version(cased,large):

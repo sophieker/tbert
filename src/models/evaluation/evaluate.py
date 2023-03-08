@@ -1,9 +1,9 @@
-from src.models.save_load import get_model_dir
+from save_load import get_model_dir
 import csv
 import numpy as np
 import tensorflow as tf
 import pandas as pd
-from src.loaders.load_data import load_data
+from loaders.load_data import load_data
 
 def get_confidence_scores(Z3,normalised=False):
     if normalised:

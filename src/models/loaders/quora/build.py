@@ -1,6 +1,6 @@
-import src.loaders.build_data as build_data
+from .. import build_data as build_data
 import os
-from src.loaders.Semeval.helper import Loader
+from ..Semeval.helper import Loader
 import csv
 import random
 

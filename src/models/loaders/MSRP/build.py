@@ -1,6 +1,6 @@
-import src.loaders.build_data as build_data
+import loaders.build_data as build_data
 import os
-from src.loaders.Semeval.helper import Loader
+from loaders.Semeval.helper import Loader
 import csv
 import random
 
@@ -47,6 +47,8 @@ def build(opt):
         # urls = ['https://zhiguowang.github.io' + fnames[0]]
 
         dpext = os.path.join(dpath, 'MSRParaphraseCorpus')
+        dpext = os.path.join('..', dpext)
+        dpext = os.path.join('..', dpext)
         # build_data.make_dir(dpext)
 
         # for fname, url in zip(fnames,urls):

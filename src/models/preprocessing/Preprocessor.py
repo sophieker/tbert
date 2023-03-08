@@ -5,7 +5,7 @@ import re
 import numpy as np
 import os
 from pathlib import Path
-from src.models.helpers.bert import convert_sentence_pairs_to_features,create_tokenizer,get_bert_version
+from helpers.bert import convert_sentence_pairs_to_features,create_tokenizer,get_bert_version
 # from src.models.helpers.bert import convert_sentence_pairs_to_features,create_tokenizer
 
 def get_homedir():

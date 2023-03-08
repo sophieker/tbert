@@ -1,5 +1,5 @@
 import tensorflow as tf
-from src.models.tf_helpers import maybe_print
+from tf_helpers import maybe_print
 
 def forward_propagation(input_dict, classes, hidden_layer=0, reduction_factor=2, dropout=0, seed_list=[], print_dim=False):
     """

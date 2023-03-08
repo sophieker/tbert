@@ -7,11 +7,14 @@ import argparse
 import tensorflow as tf
 from tensorflow.python import debug as tf_debug
 from tensorflow.python.framework import ops
-from src.models.tf_helpers import lookup_embedding,initialise_pretrained_embedding
-from src.models.tf_helpers import compute_cost
-from src.models.tf_helpers import create_placeholders,create_doc_topic_placeholders,create_word_topic_placeholders
-from src.models.helpers.minibatching import create_minibatches
-from src.models.tf_helpers import maybe_print
+
+
+
+from tf_helpers import lookup_embedding,initialise_pretrained_embedding
+from tf_helpers import compute_cost
+from tf_helpers import create_placeholders,create_doc_topic_placeholders,create_word_topic_placeholders
+from helpers.minibatching import create_minibatches
+from tf_helpers import maybe_print
 import tensorflow_hub as hub
 
 import random
@@ -19,14 +22,14 @@ import random
 np.random.seed(1)
 
 
-from src.loaders.load_data import load_data
-from src.logs.training_logs import write_log_entry, start_timer, end_timer, get_new_id
-from src.models.save_load import save_model, load_model, create_saver, get_model_dir, create_model_folder, \
+from loaders.load_data import load_data
+from logs.training_logs import write_log_entry, start_timer, end_timer, get_new_id
+from save_load import save_model, load_model, create_saver, get_model_dir, create_model_folder, \
     delete_all_checkpoints_but_best
-from src.evaluation.evaluate import output_predictions, get_confidence_scores, save_eval_metrics
-from src.models.helpers.base import add_git_version,skip_MAP,extract_data
-from src.models.helpers.bert import get_bert_version
-from src.models.helpers.training_regimes import standard_training_regime,layer_specific_regime
+from evaluation.evaluate import output_predictions, get_confidence_scores, save_eval_metrics
+from helpers.base import add_git_version,skip_MAP,extract_data
+from helpers.bert import get_bert_version
+from helpers.training_regimes import standard_training_regime,layer_specific_regime
 
 import os
 import warnings
@@ -139,7 +142,7 @@ def model(data_dict, opt, logfile=None, print_dim=False):
             topic_scope = ''
         else:
             raise NotImplementedError()
-        module_name = "src.models.forward.{}".format(opt['model'])
+        module_name = "forward.{}".format(opt['model'])
         model = importlib.import_module(module_name)
         if 'word' in topic_scope:
             topic_update = opt['topic_update'] = opt.get('topic_update', False) # None for backward compatibility

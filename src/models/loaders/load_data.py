@@ -4,11 +4,11 @@ import pickle
 
 import numpy as np
 
-from src.loaders.Quora.build import build
-from src.loaders.augment_data import create_large_train, double_task_training_data
-from src.preprocessing.Preprocessor import Preprocessor, get_onehot_encoding, reduce_embd_id_len
-from src.topic_model.topic_loader import load_document_topics, load_word_topics
-from src.topic_model.topic_visualiser import read_topic_key_table
+from loaders.quora.build import build
+from loaders.augment_data import create_large_train, double_task_training_data
+from preprocessing.Preprocessor import Preprocessor, get_onehot_encoding, reduce_embd_id_len
+from topic_model.topic_loader import load_document_topics, load_word_topics
+from topic_model.topic_visualiser import read_topic_key_table
 
 
 def get_filenames(opt):
@@ -222,7 +222,7 @@ def load_data(opt,cache=True,numerical=True,onehot=False, write_vocab=False):
 
     # get options
     dataset = opt['dataset']
-    module_name = "src.loaders.{}.build".format(dataset)
+    module_name = "loaders.{}.build".format(dataset)
     my_module = importlib.import_module(module_name)
     my_module.build(opt) # download and reformat if not existing
     topic_scope = opt.get('topic','')

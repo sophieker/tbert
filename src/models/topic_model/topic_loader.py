@@ -17,7 +17,7 @@ def get_topic_parent_folder(opt):
     alpha_str = get_alpha_str(opt)
     return os.path.join(get_topic_root_folder(opt),opt['dataset']+alpha_str+'_'+str(opt['num_topics']),'')
 def get_topic_model_folder(opt):
-    return os.path.join(get_topic_parent_folder(opt), opt['topic_type'],'')
+    return os.path.join("..", os.path.join("..", os.path.join(get_topic_parent_folder(opt), opt['topic_type'],'')))
 def get_topic_pred_folder(opt):
     return os.path.join(get_topic_model_folder(opt), 'predictions','')
 
@@ -40,6 +40,7 @@ def load_document_topics(opt,recover_topic_peaks,max_m=None):
     for s in subsets: # train, dev, test
         filepaths1.append(os.path.join(topic_model_folder,task+'_'+s+'_1.npy'))
         filepaths2.append(os.path.join(topic_model_folder,task+'_'+s+'_2.npy'))
+        # filepaths2.append(os.path.join(topic_model_folder,task+'_'+s+'_2.npy'))
     # load
     T1 = [np.load(f) for f in filepaths1]
     T2 = [np.load(f) for f in filepaths2]

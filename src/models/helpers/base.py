@@ -1,4 +1,4 @@
-from src.logs.training_logs import get_git_sha
+from logs.training_logs import get_git_sha
 
 def add_git_version(opt):
     '''
